@@ -65,5 +65,26 @@ public class ContactsStepDefs {
     }
 
 
+    @When("the user clicks the {string} from contacts")
+    public void theUserClicksTheFromContacts(String email) {
+        BrowserUtils.waitFor(3);
+        //we have ready method to find email webelement in pom class
+        //we just get the email from feature file and pass to that method and click it
+        ContactsPage contactsPage = new ContactsPage();
+        contactsPage.getContactEmail(email).click();
 
+
+    }
+
+    @Then("the information should be same with database")
+    public void theInformationShouldBeSameWithDatabase() {
+        BrowserUtils.waitFor(3);
+
+        ContactInfoPage contactInfoPage = new ContactInfoPage();
+        String actualFullName = contactInfoPage.contactFullName.getText();
+        String actualEmail = contactInfoPage.email.getText();
+
+
+
+    }
 }
