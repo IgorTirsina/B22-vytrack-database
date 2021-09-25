@@ -43,7 +43,7 @@ Feature: Account types
       | store_manager | Customers  | Contacts        | All - Contacts - Customers                                         |
       | store_manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
       | store_manager | System     | Jobs            | All - Jobs - System                                                |
-      | store_manager | System     | Menus           | All - Menus - System                                               |
+     # | store_manager | System     | Menus           | All - Menus - System                                               |
 
 
   Scenario Outline: Different user types
@@ -52,7 +52,7 @@ Feature: Account types
     Examples:
       | userType      |
       | driver        |
-      | admin         |
+      #| admin         |
       | store_manager |
       | sales_manager |
 
