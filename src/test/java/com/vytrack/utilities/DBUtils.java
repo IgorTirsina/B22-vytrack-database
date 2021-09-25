@@ -12,13 +12,12 @@ public class DBUtils {
     private static ResultSet resultSet;
 
     public static void createConnection () {
-        String dbUrl = ConfigurationReader.get("qa1.database.url");
-        String dbUsername = ConfigurationReader.get("qa1.database.username");
-        String dbPassword = ConfigurationReader.get("qa1.database.password");
+        String dbUrl = ConfigurationReader.get("qa3.database.url");
+        String dbUsername = ConfigurationReader.get("qa3.database.username");
+        String dbPassword = ConfigurationReader.get("qa3.database.password");
         try{
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -87,7 +86,6 @@ public class DBUtils {
                 rowList.add(row);
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return rowList;
@@ -108,7 +106,6 @@ public class DBUtils {
                 rowList.add(resultSet.getObject(column));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return rowList;
@@ -134,7 +131,6 @@ public class DBUtils {
                 rowList.add(colNameValueMap);
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return rowList;
@@ -155,7 +151,6 @@ public class DBUtils {
                 columns.add(rsmd.getColumnName(i));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return columns;

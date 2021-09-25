@@ -1,4 +1,4 @@
-@regression
+@regression @contacts
 Feature: Contacts page
 
   Scenario:Default page number
@@ -23,7 +23,6 @@ Feature: Contacts page
       | System     |
 
 
-  @wip
   Scenario: Menu Options Sales Manager
     Given the user logged in as "sales_manager"
     Then the user should see following options
@@ -61,6 +60,7 @@ Feature: Contacts page
       | user10         | Toney   | Hegmann |
       | storemanager85 | Marcella   | Huels     |
 
+    @db
   Scenario: Contact test with email
     Given the user logged in as "sales_manager"
     And the user navigates to "Customers" "Contacts"

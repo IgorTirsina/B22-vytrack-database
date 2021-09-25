@@ -1,2 +1,0 @@
-file:src/test/resources/features/Contacts.feature:40:61:62:64
-file:src/test/resources/features/AccountTypes.feature:9:32:33:34:35:36:37:38:39:40:41:42:43:44:53

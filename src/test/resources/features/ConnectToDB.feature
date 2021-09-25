@@ -1,4 +1,4 @@
-@wip
+@regression
 Feature: Test Data Base Connection
 
     @db

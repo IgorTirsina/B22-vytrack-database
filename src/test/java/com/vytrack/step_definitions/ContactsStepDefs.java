@@ -3,6 +3,7 @@ package com.vytrack.step_definitions;
 import com.vytrack.pages.*;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.DBUtils;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -71,7 +72,7 @@ public class ContactsStepDefs {
         //we just get the email from feature file and pass to that method and click it
         ContactsPage contactsPage = new ContactsPage();
         contactsPage.getContactEmail(email).click();
-
+        BrowserUtils.waitFor(3);
 
     }
 
@@ -82,8 +83,20 @@ public class ContactsStepDefs {
         ContactInfoPage contactInfoPage = new ContactInfoPage();
         String actualFullName = contactInfoPage.contactFullName.getText();
         String actualEmail = contactInfoPage.email.getText();
+        System.out.println("actualEmail = " + actualEmail);
+        System.out.println("actualFullName = " + actualFullName);
 
+        String q = "select o.id, o.first_name, o.last_name, e.email \n" +
+                "from (select id,first_name,last_name \n" +
+                "from orocrm_contact \n" +
+                "where first_name='Vanetta') o join orocrm_contact_email e\n" +
+                "on o.id = e.owner_id\n" +
+                "where e.email='"+actualEmail+"'";
+        List<Object> contactList = DBUtils.getRowList(q);
 
+        Assert.assertEquals("Contact ID is not as expected",582, contactList.get(0));
+        Assert.assertEquals("Full name is not as expected",actualFullName, (contactList.get(1)+" "+contactList.get(2)));
+        Assert.assertEquals("Email is not as expected",actualEmail, contactList.get(3));
 
     }
 }
