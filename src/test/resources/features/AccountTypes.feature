@@ -1,6 +1,7 @@
 @regression
 Feature: Account types
-   @smoke
+
+  @smoke
   Scenario: Driver user
     Given the user logged in as "driver"
     When the user navigates to "Activities" "Calendar Events"
@@ -9,8 +10,9 @@ Feature: Account types
   Scenario: Sales manager user
     Given the user logged in as "sales_manager"
     When the user navigates to "Customers" "Accounts"
-    Then the title contains "Accounts - CustomerS"
-   @smoke
+    Then the title contains "Accounts - Customers"
+
+  @smoke
   Scenario: Store manager user
     Given the user logged in as "store_manager"
     When the user navigates to "Customers" "Contacts"
@@ -29,19 +31,19 @@ Feature: Account types
       | driver        | Customers  | Contacts        | Contacts - Customers                                               |
       | driver        | Activities | Calendar Events | Calendar Events - Activities                                       |
       | driver        | System     | Jobs            | Jobs - System                                                      |
-      | sales manager | Fleet      | Vehicles        | All - Car - Entities - System - Car - Entities - System            |
-      | sales manager | Fleet      | Vehicles Model  | All - Vehicles Model - Entities - System - Car - Entities - System |
-      | sales manager | Customers  | Accounts        | All - Accounts - Customers                                         |
-      | sales manager | Customers  | Contacts        | All - Contacts - Customers                                         |
-      | sales manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
-      | sales manager | System     | Jobs            | All - Jobs - System                                                |
-      | store manager | Fleet      | Vehicles        | All - Car - Entities - System - Car - Entities - System            |
-      | store manager | Fleet      | Vehicles Model  | All - Vehicles Model - Entities - System - Car - Entities - System |
-      | store manager | Customers  | Accounts        | All - Accounts - Customers                                         |
-      | store manager | Customers  | Contacts        | All - Contacts - Customers                                         |
-      | store manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
-      | store manager | System     | Jobs            | All - Jobs - System                                                |
-      | store manager | System     | Menus           | All - Menus - System                                               |
+      | sales_manager | Fleet      | Vehicles        | All - Car - Entities - System - Car - Entities - System            |
+      | sales_manager | Fleet      | Vehicles Model  | All - Vehicles Model - Entities - System - Car - Entities - System |
+      | sales_manager | Customers  | Accounts        | All - Accounts - Customers                                         |
+      | sales_manager | Customers  | Contacts        | All - Contacts - Customers                                         |
+      | sales_manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
+      | sales_manager | System     | Jobs            | All - Jobs - System                                                |
+      | store_manager | Fleet      | Vehicles        | All - Car - Entities - System - Car - Entities - System            |
+      | store_manager | Fleet      | Vehicles Model  | All - Vehicles Model - Entities - System - Car - Entities - System |
+      | store_manager | Customers  | Accounts        | All - Accounts - Customers                                         |
+      | store_manager | Customers  | Contacts        | All - Contacts - Customers                                         |
+      | store_manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
+      | store_manager | System     | Jobs            | All - Jobs - System                                                |
+      | store_manager | System     | Menus           | All - Menus - System                                               |
 
 
   Scenario Outline: Different user types
