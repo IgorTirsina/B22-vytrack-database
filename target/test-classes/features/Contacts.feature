@@ -11,8 +11,7 @@ Feature: Contacts page
     Given the user is on the login page
     And the user enters the sales manager information
     When the user navigates to "Activities" "Calendar Events"
-    Then the title contains "Calendars"
-   #added "s" at the end of calendar to fail
+    Then the title contains "Calendar"
 
   Scenario: Menu Options Driver
     Given the user logged in as "driver"
@@ -25,7 +24,7 @@ Feature: Contacts page
 
   @wip
   Scenario: Menu Options Sales Manager
-    Given the user logged in as "sales manager"
+    Given the user logged in as "sales_manager"
     Then the user should see following options
       | Dashboards         |
       | Fleet              |
@@ -61,4 +60,8 @@ Feature: Contacts page
       | user10         | Brenden   | Schneider |
       | storemanager85 | Stephan   | Haley     |
 
-
+  Scenario: Contact test with email
+    Given the user logged in as "sales_manager"
+    And the user navigates to "Customers" "Contacts"
+    When the user clicks the "emailwillcomehere" from contacts
+    Then the information should be same with database

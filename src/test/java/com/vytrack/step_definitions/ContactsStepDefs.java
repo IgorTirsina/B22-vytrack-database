@@ -25,10 +25,10 @@ public class ContactsStepDefs {
         if(userType.equals("driver")){
             username = ConfigurationReader.get("driver_username");
             password = ConfigurationReader.get("driver_password");
-        }else if(userType.equals("sales manager")){
+        }else if(userType.equals("sales_manager")){
             username = ConfigurationReader.get("sales_manager_username");
             password = ConfigurationReader.get("sales_manager_password");
-        }else if(userType.equals("store manager")){
+        }else if(userType.equals("store_manager")){
             username = ConfigurationReader.get("store_manager_username");
             password = ConfigurationReader.get("store_manager_password");
         }
@@ -39,7 +39,6 @@ public class ContactsStepDefs {
     @Then("the user should see following options")
     public void the_user_should_see_following_options(List<String> menuOptions) {
         BrowserUtils.waitFor(2);
-        //get the list of webelement and convert them to list of string and assert
         List<String> actualOptions = BrowserUtils.getElementsText(new DashboardPage().menuOptions);
 
         Assert.assertEquals(menuOptions,actualOptions);
