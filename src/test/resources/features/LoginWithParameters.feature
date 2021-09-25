@@ -1,3 +1,4 @@
+@regression
 Feature: Login as different users
 
     Scenario: login as a driver user
@@ -6,7 +7,6 @@ Feature: Login as different users
       Then the user should be able to login
       And the title contains "Dashboard"
 
-  @wip
   Scenario Outline: login as a driver
     Given the user logged in as "<usertype>"
     Then the user should be able to login

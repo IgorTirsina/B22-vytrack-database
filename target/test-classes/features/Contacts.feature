@@ -1,3 +1,4 @@
+@regression
 Feature: Contacts page
 
   Scenario:Default page number
@@ -41,8 +42,8 @@ Feature: Contacts page
     When the user logs in using following credentials
       | username  | user10      |
       | password  | UserUser123 |
-      | firstname | Brenden     |
-      | lastname  | Schneider   |
+      | firstname | Toney     |
+      | lastname  | Hegmann   |
     Then the user should be able to login
 
 
@@ -57,11 +58,11 @@ Feature: Contacts page
 
     Examples:
       | user           | firstName | lastName  |
-      | user10         | Brenden   | Schneider |
-      | storemanager85 | Stephan   | Haley     |
+      | user10         | Toney   | Hegmann |
+      | storemanager85 | Marcella   | Huels     |
 
   Scenario: Contact test with email
     Given the user logged in as "sales_manager"
     And the user navigates to "Customers" "Contacts"
-    When the user clicks the "emailwillcomehere" from contacts
+    When the user clicks the "vanettaabshire@goldner-toy.co" from contacts
     Then the information should be same with database

@@ -1,3 +1,4 @@
+@regression
 Feature: Account types
    @smoke
   Scenario: Driver user
@@ -6,12 +7,12 @@ Feature: Account types
     Then the title contains "Calendar Events - Activities"
 
   Scenario: Sales manager user
-    Given the user logged in as "sales manager"
+    Given the user logged in as "sales_manager"
     When the user navigates to "Customers" "Accounts"
     Then the title contains "Accounts - CustomerS"
    @smoke
   Scenario: Store manager user
-    Given the user logged in as "store manager"
+    Given the user logged in as "store_manager"
     When the user navigates to "Customers" "Contacts"
     Then the title contains "Contacts - Customers"
 
@@ -50,6 +51,6 @@ Feature: Account types
       | userType      |
       | driver        |
       | admin         |
-      | store manager |
-      | sales manager |
+      | store_manager |
+      | sales_manager |
 

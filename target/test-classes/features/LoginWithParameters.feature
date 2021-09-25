@@ -1,3 +1,4 @@
+@regression
 Feature: Login as different users
 
     Scenario: login as a driver user
@@ -6,10 +7,12 @@ Feature: Login as different users
       Then the user should be able to login
       And the title contains "Dashboard"
 
-        #homework
-  Scenario: login as a driver
-    Given the user logged in as "usertype"
+  Scenario Outline: login as a driver
+    Given the user logged in as "<usertype>"
     Then the user should be able to login
     And the title contains "Dashboard"
-    #driver,storemanager,salesmanager
-   #you will have one step definition and it will handle differnet usertypes
+  Examples:
+  |usertype|
+  |driver  |
+  |store_manager|
+  |sales_manager|
